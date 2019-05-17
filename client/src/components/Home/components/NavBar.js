@@ -27,6 +27,7 @@ class NavBar extends Component {
             <Button variant="outline-success">Search</Button>
           </Form>
         </Navbar.Collapse>
+        <p>test</p>
       </Navbar>
     </div>
     )
