@@ -1,40 +1,53 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-import '../home.css'
+import logo from '../../../img/logo.png';
+
+
 
 
 class NavBar extends Component {
 
+    conponentDidMount() {
+      // navbar stick to top
+      let navbar =  document.getElementById("navbar-container");
+      console.log(navbar)
+      let sticky = navbar.offsetTop;
+
+      const stickyNavbar = () => {
+        if (window.pageYOffset >= sticky) {
+          navbar.classList.add("sticky")
+        }
+        else {
+          navbar.classList.remove("sticky");
+        }
+      }
+      window.onscroll =  function() {stickyNavbar()};
+
+    }
+
+
+
   render() {
     return(
-      <div className="">
-        <Navbar bg="light" expand="lg">
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Navbar.Collapse>
-        <p>test</p>
-      </Navbar>
-    </div>
+      <div id="navbar-container" className="navbar-container">
+        <div id="logo">
+          <img src={logo} alt="Logo of Goaledminds"/>
+        </div>
+        <div className="dt-menu-toggle"> <span className="dt-menu-toggle-icon"></span></div>
+        <nav className="menu-wrapper">
+            <ul id="main-ul-menu">
+              <li><a href="#Home">Home</a></li>
+              <li><a href="#About">About</a></li>
+              <li><a href="#Bios">Bios</a></li>
+              <li><a href="#Blog">Blog</a></li>
+              <li><a href="#Contact">Contact</a></li>
+            </ul>
+        </nav>
+      </div>
+
     )
   }
 
 }
-
 
 
 export default NavBar;
