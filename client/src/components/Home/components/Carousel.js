@@ -16,7 +16,7 @@ class Carousel extends Component {
           <section className="slideshow">
             <div className="slideshow-inner">
               <div className="slides">
-                <div className="slide is-active ">
+                <div className="slide is-loaded is-active ">
                   <div className="slide-content">
                     <div className="caption">
                       <div className="title">Slide title 1</div>
@@ -32,7 +32,7 @@ class Carousel extends Component {
                     <img src={bg1} alt="" className="image" />
                   </div>
                 </div>
-                <div className="slide">
+                <div className="slide is-loaded">
                   <div className="slide-content">
                     <div className="caption">
                       <div className="title">Slide title 2</div>
@@ -48,7 +48,7 @@ class Carousel extends Component {
                     <img src={bg2} alt="" className="image" />
                   </div>
                 </div>
-                <div className="slide">
+                <div className="slide is-loaded">
                   <div className="slide-content">
                     <div className="caption">
                       <div className="title">Slide title 3</div>
@@ -64,7 +64,7 @@ class Carousel extends Component {
                     <img src={bg3} alt="" className="image" />
                   </div>
                 </div>
-                <div className="slide">
+                <div className="slide is-loaded">
                   <div className="slide-content">
                     <div className="caption">
                       <div className="title">Slide title 4</div>
@@ -79,20 +79,6 @@ class Carousel extends Component {
                   <div className="image-container">
                     <img src="https://www.alixbdanthenay.fr/wp-content/uploads/2016/11/20mars17-sans-typo.jpg" alt="" className="image" />
                   </div>
-                </div>
-              </div>
-              <div className="pagination">
-                <div className="item is-active">
-                  <span className="icon">1</span>
-                </div>
-                <div className="item">
-                  <span className="icon">2</span>
-                </div>
-                <div className="item">
-                  <span className="icon">3</span>
-                </div>
-                <div className="item">
-                  <span className="icon">4</span>
                 </div>
               </div>
               <div className="arrows">
