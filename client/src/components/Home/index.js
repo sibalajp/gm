@@ -4,7 +4,7 @@ import Process from './components/Process';
 
 import React, { Component }from 'react';
 
-import './home.css'
+import './home.css';
 
 
 
@@ -12,10 +12,10 @@ class Home extends Component {
 
   render() {
     return (
-       <div id="home-container">
-        <NavBar />
-        <Carousel />
-        <Process />
+       <div className="home-container">
+          <NavBar />
+          <Carousel />
+          <Process />
        </div>
     );
   }

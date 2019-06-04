@@ -1,40 +1,9 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 .home-container {
-  border: 1px dotted purple;
-  display: flex;
-}
-
-
-/* Navbar */
-
-.navbar-container {
-  padding-top: 20px;
-
-}
-
-#logo {
-  width: 70px;
-  border: 1px solid red;
-  width: 100%;
-  /* align-content: center; */
-}
-
-#logo img {
-  width: 60%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-.menu-wrapper ul {
-  border: 1px dotted blue;
-}
-
-.menu-wrapper ul li {
-  display: none;
-}
-
-
-.dt-menu-toggle-icon {
 
 }
