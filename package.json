@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "concurrently": "^4.1.0",
+    "mongoose": "^5.5.13",
     "nodemon": "^1.19.0"
   },
   "devDependencies": {
