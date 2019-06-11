@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const mongoose = require('mongoose');
 
-
-
+mongoose.connect('mongodb://localhost/gm_dev')
 
 const app = express();
 
