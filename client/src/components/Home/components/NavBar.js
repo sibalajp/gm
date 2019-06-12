@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../../../img/logo.png';
 import '../styles/navbar.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -31,8 +32,6 @@ class NavBar extends Component {
           }
         }
         window.onscroll =  function() {stickyNavbar()};
-
-
     }
 
 
@@ -47,26 +46,23 @@ class NavBar extends Component {
 
   }
 
-
-
   render() {
-
     return(
       <div id="navbar-container" className="navbar-container">
         <div className="navbar-inner">
           <div id="logo">
             <img src={logo} alt="Logo of Goaledminds"/>
           </div>
-          <div id="menu_wrapper" className={this.state.menuwrapper}   >
+          <div id="menu_wrapper" className={this.state.menuwrapper}>
             <nav>
                 <ul id="main_ul_menu">
                   <li><a href="#Home" className="active" >Home</a></li>
-                  <li><a href="#About">About</a></li>
+                  <li><Link to={'/about'}>About</Link></li>
                   <li><a href="#Bios">Bios</a></li>
                   <li><a href="#Blog">Blog</a></li>
                   <li><a href="#Contact">Contact</a></li>
                   <li>
-                    <a href="#" className="icon" onClick={this.getMenu} >
+                    <a href="#" className="icon" onClick={this.getMenu}>
                       <i className="fas fa-bars"></i>
                     </a>
                 </li>

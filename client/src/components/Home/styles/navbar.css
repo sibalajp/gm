@@ -54,7 +54,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  z-index: 2;
 }
 
 .navbar-inner {
@@ -74,22 +74,22 @@
 
 
 @media screen and (max-width: 1000px) {
+
+  .fa-bars {
+    font-size: 33px;
+  }
+
+  .menu-wrapper {
+    position: relative;
+    text-align: right;
+  }
+
   #main_ul_menu li:not(:last-child) {
     display: none;
   }
 
   #main_ul_menu .icon {
     display: block;
-  }
-
-  .fa-bars {
-    font-size: 33px;
-  }
-
-
-  .menu-wrapper {
-    position: relative;
-    text-align: right;
   }
 
   .navbar-inner  {
