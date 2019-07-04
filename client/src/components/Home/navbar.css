@@ -8,10 +8,6 @@
   grid-area: logo;
 }
 
-#logo img {
-  width: 150px;
-}
-
 .menu-wrapper {
   grid-area: menu-wrapper;
   display: grid;
