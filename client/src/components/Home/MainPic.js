@@ -18,9 +18,14 @@ class MainPic extends Component {
   render() {
     return(
       <div className="carousel-container" style={ style}>
-          <div class="mainpic-content"><h1>Quick Mobile Car Wash</h1>  </div>
-          <div class="mainpic-content"><h2>We bring a bucket, soap, towels - fit for simple car wash service</h2>  </div>
-          <div class="mainpic-content"><button>MAKE AN APPOINTMENT</button> </div>
+          <div class="mainpic-content"><h1>In-home classic car wash as low as $17</h1>  </div>
+          <div class="mainpic-content"><h2>We wash with passion, without the fancy gear</h2>  </div>
+          <div class="mainpic-content form-group">
+            <form class="" action="/">
+              <input className="zip-code" type="text" name="fname" placeholder="ZIPCODE"></input>
+              <input id="zip-code-button" className="zip-button" type="submit" value="Get Started"></input>   
+            </form>
+          </div>
       </div>
     )
   }

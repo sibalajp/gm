@@ -60,7 +60,7 @@ class NavBar extends Component {
                 <ul id="main_ul_menu">
                   <li><a  href="#how_it_works" className="active" >How It Works</a></li>
                    <li>|</li>
-                  <li><Link to={'/HowItWorks'}>Pricing</Link></li>
+                  <li><Link to={'/pricing'}>Pricing</Link></li>
                 </ul>
             </nav>
           </div>
