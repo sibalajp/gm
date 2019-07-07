@@ -58,7 +58,6 @@ class NavBar extends Component {
     return(
       
       <div id="navbar-container" className="navbar-container">
-      
         <div className="navbar-inner">
           <div id="logo">
           <img src="https://img.icons8.com/windows/64/000000/kangaroo.png" alt="bucketroo logo"></img>

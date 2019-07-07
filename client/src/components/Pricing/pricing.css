@@ -1,0 +1,103 @@
+.cleaning-time {
+    position: relative;
+    height: 50px;
+    font-size: 12px;
+    text-align: center;
+    background-color:#D9D9D9;
+}
+
+.cleaning-time img {
+    height: 35px;
+    padding: 6px;
+    vertical-align: middle;
+} 
+
+.cleaning-time p {
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: calc(.1em + 1vw);
+    line-height: 46px;
+} 
+
+.pricing-body {
+    text-align: center;
+}
+
+.pricing-header {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.pricing-header {
+    font-size: calc(2.5em + 1vw);
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+}
+
+
+.pricing-statement {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: calc(.5em + 1vw);
+    padding-top: 30px;
+    color: #757575;
+    height: 100px;
+}
+
+.image-overlay {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.packages {
+    position: relative;
+    display: flex;
+    height: 600px;
+    justify-content: center;
+}
+
+.packages-internal {
+    height: 100%;
+    width: 20%;
+    background-color: #F2F2F2;
+}
+
+.package-top {
+    height: 140px;
+
+}
+.package-top img {
+    height: 80px;
+}
+
+.first-package {
+    border-top: 5px solid orange;
+    
+}
+
+.packages-footer {
+    height: 100px;
+    padding-top: 50px;
+    color: #757575;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.package-includes {
+    padding-top: 20px;
+}
+
+.package-includes ul {
+    list-style-type: none;
+    text-align: left;
+}
+
+.package-includes  ul img {
+    height: 20px;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.package-includes  ul li {
+    line-height: 2;
+    font-size: 14px;
+}
+
