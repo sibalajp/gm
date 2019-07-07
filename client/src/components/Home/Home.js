@@ -10,10 +10,23 @@ import './home.css';
 
 class Home extends Component {
 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      hiwisActive: ""
+    }
+  }
+
+  componentDidMount() {
+    this.setState({hiwisActive:"active"})
+  }
+
+
   render() {
     return (
        <div className="home-container">
-          <NavBar />
+          <NavBar hiwisActive={this.state.hiwisActive}/>
           <MainPic />
           <HowItWorks />
        </div>

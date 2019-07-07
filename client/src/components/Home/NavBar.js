@@ -6,16 +6,21 @@ import { Link } from 'react-router-dom';
 
 
 class NavBar extends Component {
+
     constructor(props){
       super(props)
-
+    
       this.state = {
-        menuwrapper: "menu-wrapper"
+        menuwrapper: "menu-wrapper",
+        howitworksActive: "active",
+        pricingActive: ""
       }
 
       this.getMenu = this.getMenu.bind(this)
+      
+   
     }
-
+   
     conponentDidMount() {
         // navbar stick to top
         let navbar =  document.getElementById("navbar-container");
@@ -33,7 +38,7 @@ class NavBar extends Component {
         window.onscroll =  function() {stickyNavbar()};
     }
 
-
+ 
   getMenu() {
     let menu = this.state.menuwrapper;
     if(menu === "menu-wrapper") {
@@ -44,6 +49,9 @@ class NavBar extends Component {
     }
 
   }
+
+
+  
 
 
   render() {
@@ -58,9 +66,9 @@ class NavBar extends Component {
           <div id="menu_wrapper" className={this.state.menuwrapper}>
             <nav>
                 <ul id="main_ul_menu">
-                  <li><a  href="#how_it_works" className="active" >How It Works</a></li>
+                  <li> <Link href="#how_it_works" className={` ${this.props.hiwisActive}`} to={'/howitworks'}>How It Works</Link></li>
                    <li>|</li>
-                  <li><Link to={'/pricing'}>Pricing</Link></li>
+                  <li className={ `pricing ${this.props.isActive}` }><Link id="pricing"   to={'/pricing'}>Pricing</Link></li>
                 </ul>
             </nav>
           </div>
