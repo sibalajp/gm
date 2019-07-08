@@ -35,8 +35,6 @@ class Pricing extends Component {
                         <div className="packages-internal">
                             <div className="first-package">
                               <div className="package-top">
-                                 
-                                
                                   <img src={silverShield}></img>
                                   <div className="image-overlay">
                                       <p>Bucketroo</p>
