@@ -1,0 +1,18 @@
+'use strict'; 
+
+require('dotenv').config(); //this is what we used to set up the env variable for JWT_SECRET
+
+module.exports = {
+  CLIENT_ORIGIN: process.env.CLIENT_ORIGIN || 'http://localhost:3000',
+
+  MONGODB_URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/pawfile-throwaway',
+
+  TEST_MONGODB_URI: process.env.TEST_MONGODB_URI || 'mongodb://localhost:27017/pawfile-throwaway',
+
+  PORT: process.env.PORT || 8080,
+
+  JWT_SECRET: process.env.JWT_SECRET || 'ulZxUE3HgUAL7xy1A5ix8Oye613K7qrFe2EI5GO3qNN1o7BSJMH8LsK8noBhJq2',  
+  // process.env.JWT_SECRET, //this doesnt have a fallback so it has to get the value assigned in the env variable
+
+  JWT_EXPIRY: process.env.JWT_EXPIRY || '30m'
+};
