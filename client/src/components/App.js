@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './Home/Home';
 import Pricing from './Pricing/pricing';
+import signup from './Registration/signup'
 import './App.css';
 
 
