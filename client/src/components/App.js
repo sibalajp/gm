@@ -18,6 +18,7 @@ class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route exact path="/pricing" component={Pricing}/>
             <Route exact path="/howitworks" component={Home}/>
+            <Route exact path="/signup" component={signup}/>
           </div>
         </BrowserRouter>
       </div>

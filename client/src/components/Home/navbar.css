@@ -7,6 +7,42 @@
 #logo {
   grid-area: logo;
 }
+.login {
+  width: 90px;
+  height: 40px;
+  background-color: transparent;
+  margin: 15px;
+  font-family: 'Lato', sans-serif; 
+  font-size: calc(.1em + 1vw);
+  font-weight: 600;
+  color: #FF8300;
+  border-color: #FF8300;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.login:hover {
+  background-color: #99005d;
+}
+
+.signup {
+  width: 90px;
+  height: 40px;
+  background-color: #99005d;
+  border-color: #FF8300;
+  font-size: calc(.1em + 1vw);
+  vertical-align: middle;
+  color: #FF8300;
+  cursor: pointer;
+}
+
+.signup:hover {
+  background-color: transparent;
+}
+
+.login-signup {
+  grid-area: login-signup;
+}
 
 .menu-wrapper {
   grid-area: menu-wrapper;
@@ -51,6 +87,7 @@
   justify-content: center;
   align-items: center;
   z-index: 2;
+  
 }
 
 .navbar-inner {
@@ -59,15 +96,17 @@
   background-color: #006699;
   opacity: .9;
   display: grid;
-  grid-template-columns: 20% 30% 50%;
+  grid-template-columns: 20% 20% 30% auto 30%;
   grid-template-areas:
-  "logo . menu-wrapper";
+  "logo . menu-wrapper . login-signup";
   text-align: center;
   align-items: center;
   margin: 0px auto;
   width: 80%;
   height: 60%;
 }
+
+
 
 
 @media screen and (max-width: 1000px) {
