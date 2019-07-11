@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {Field, reduxForm} from 'redux-form';
 import './registration-form.css';
 import {registerUser} from '../../actions/user-crud';
+import {login} from '../../actions/auth';
+import Input from './input';
 
 
-class RegistrationForm extends Component {
+export class RegistrationForm extends Component {
 
     componentDidMount() {
         document.title = "Register"
@@ -13,16 +17,11 @@ class RegistrationForm extends Component {
         const {email, password} = values;
         const user = {email, password};
 
-        //start showing an animation 
-        // this.props.dispatch(loadingAnimationToggle(true))
         return this.props
             .dispatch(registerUser(user))
-            .then(() => this.props.dispatch(login(username, password)));
+            .then(() => this.props.dispatch(login(email, password)));
     }
 
-    componentWillUnmount(){
-        this.props.dispatch(loadingAnimationToggle(false))
-    }
 
     render() {
         let error;
@@ -36,7 +35,7 @@ class RegistrationForm extends Component {
 
         return (
             <form
-                className="onboarding-form register form blurb"
+                className=""
                 id="register"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
@@ -51,7 +50,6 @@ class RegistrationForm extends Component {
                     name="username"
                     label = "Username:"
                     className="required"
-                    validate={[required, nonEmpty, isTrimmed]}
                 />
                 <Field 
                     component={Input} 
@@ -60,7 +58,7 @@ class RegistrationForm extends Component {
                     label="First Name:"
                     className="required"
                     maxLength="12"
-                    validate={[required, nonEmpty, isTrimmed]}
+                  
                 />
                 <Field 
                     component={Input} 
@@ -68,7 +66,7 @@ class RegistrationForm extends Component {
                     name="lastName" 
                     label="Last Name:"
                     className="required"
-                    validate={[required, nonEmpty, isTrimmed]}
+                   
                 />
                 <Field
                     component={Input}
@@ -76,7 +74,7 @@ class RegistrationForm extends Component {
                     name="password"
                     label="Password:"
                     className="required"
-                    validate={[required, passwordLength, isTrimmed]}
+                   
                 />
                 <Field
                     component={Input}
@@ -84,14 +82,13 @@ class RegistrationForm extends Component {
                     label="Confirm Password:"
                     name="passwordConfirm"
                     className="required"
-                    validate={[required, nonEmpty, matchesPassword]}
+              
                 />
                 <button
                     type="submit"
                 >
                     Register
                 </button>
-                {this.props.loadingAnimation && <LoadingAnimation/>}
             </form>
         );
     }
@@ -100,3 +97,9 @@ class RegistrationForm extends Component {
 
 
 }
+
+
+export default connect()(reduxForm({
+    form: 'registration',
+    
+})(RegistrationForm));

@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const passport = require('passport');
 
@@ -8,8 +9,11 @@ const localStrategy = require('./passport/local');
 const jwtStrategy = require('./passport/jwt');
 
 const authRouter = require('./routes/auth');
+const usersRouter = require('./routes/users');
 
 mongoose.connect('mongodb://localhost/gm_dev')
+
+const {CLIENT_ORIGIN} = require('./config');
 
 const app = express();
 
@@ -34,7 +38,7 @@ const options = {session: false, failWithError: true};
 const jwtAuth = passport.authenticate('jwt', options);
 const localAuth = passport.authenticate('local', options);
 
-
+app.use('/users', usersRouter);
 app.use('/login', localAuth, authRouter); //for login
 
 
