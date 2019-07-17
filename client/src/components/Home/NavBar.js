@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import './navbar.css';
 import { Link } from 'react-router-dom';
+import Navbarcomp from './navbar-comp';
+
+
+
+
+
 
 class NavBar extends Component {
 
@@ -9,7 +15,8 @@ class NavBar extends Component {
     
       this.state = {
         howitworksActive: "active",
-        pricingActive: ""
+        pricingActive: "",
+        bgColor: ""
       }
     }
     
@@ -28,21 +35,29 @@ class NavBar extends Component {
           }
         }
         window.onscroll =  function() {stickyNavbar()};
+
+
+        
+
+        
     }
 
-   
+    boxClick = (e) => {
+     this.setState({ bgColor: "yellow"})
+   }
 
- 
- 
+  
+  
   render() {
     
+
     return(
       <div id="navbar-container" className="navbar-container">   
         <div className="navbar-inner">
-          <div id="logo">
+          {/* <div id="logo">
             <img src="https://img.icons8.com/windows/64/000000/kangaroo.png" alt="bucketroo logo"></img>
           </div>
-          <div id="menu_wrapper" className="menu-wrapper">
+          <div id="menu_wrapper" className="md-none menu-wrapper">
             <nav>
                 <ul id="main_ul_menu">
                   <li> <Link href="#how_it_works" className={` ${this.props.hiwisActive}`} to={'/howitworks'}>How It Works</Link></li>
@@ -52,9 +67,12 @@ class NavBar extends Component {
             </nav>
           </div>
           <div className="login-signup">
-            <button className="login">Login</button>
-            <button className="signup"><Link to={'/signup'}>Sign Up</Link></button>
-          </div>
+            <button className="md-none login">Login</button>
+            <button className="md-none signup"><Link to={'/signup'}>Sign Up</Link></button>
+            <i style={{ backgroundColor: this.state.bgColor }} onClick={ this.boxClick }class="fas fa-bars"></i>
+          </div> */}
+         <Navbarcomp />
+         
         </div>
       </div>
 
