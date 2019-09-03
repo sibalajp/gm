@@ -76,8 +76,6 @@ const SideNav = () => {
           <Link to={"/signup"}>Sign Up</Link>
         </Button>
       </List>
-      Hello World Hello World Test Test Test Test Test Test Test Test Test Test
-      TestTest
     </div>
   );
 
