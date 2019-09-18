@@ -4,8 +4,8 @@ import { Field, reduxForm } from "redux-form";
 import "./registration-form.css";
 import { registerUser } from "../../actions/user-crud";
 import { login } from "../../actions/auth";
-import FormControl from "./formControl";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 export class RegistrationForm extends Component {
   componentDidMount() {
@@ -21,47 +21,43 @@ export class RegistrationForm extends Component {
       .then(() => this.props.dispatch(login(email, password)));
   };
 
-  render() {
-    let error;
-    const email = value =>
-      value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
-        ? "Invalid email address"
-        : undefined;
-    // const required = value => (value ? undefined : "Required");
-    // const minValue = min => value =>
-    //   value && value < min ? `Must be at least ${min}` : undefined;
-    // const minValue8 = minValue(8);
-
-    if (this.props.error) {
-      error = (
-        <div className="form-error" aria-live="polite">
-          {this.props.error}
+  renderError({ error, touched }) {
+    if (touched && error) {
+      return (
+        <div className="ui error message">
+          <div className="header">{error}</div>
         </div>
       );
     }
+  }
 
+  formControl = ({ input, label, type, meta }) => (
+    <span>
+      <Form.Control {...input} autoComplete="off" />
+      {this.renderError(meta)}
+    </span>
+  );
+
+  render() {
     return (
-      <Form id="register" onSubmit={this.props.handleSubmit(this.onSubmit)}>
-        <h2>Register</h2>
-        {error}
+      <Form>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Field
-            component={FormControl}
-            type="text"
-            name="email"
-            validate={email}
-          />
+          <Field component={this.formControl} name="email" />
         </Form.Group>
-        <Form.Group controlId="formBasicEmail">
+
+        <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Field
-            component={FormControl}
-            type="password"
+            component={this.formControl}
             name="password"
-            // validate={[required]}
+            placeholder="Enter Password"
           />
         </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
       </Form>
     );
   }
@@ -69,13 +65,22 @@ export class RegistrationForm extends Component {
 
 const validate = formValues => {
   const errors = {};
+  console.log(formValues);
+  const email = value =>
+    value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
+      ? "Invalid email address"
+      : undefined;
 
-  if (!formValues.title) {
-    errors.title = "You must enter a title";
+  if (!formValues.email) {
+    errors.email = "You must enter a title";
   }
 
-  if (!formValues.description) {
-    errors.description = "You must enter a description";
+  if (formValues.email && email(formValues.email)) {
+    errors.email = "Invalid email address";
+  }
+
+  if (!formValues.password) {
+    errors.password = "You must enter a password";
   }
 
   return errors;
