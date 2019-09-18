@@ -6,6 +6,7 @@ import { registerUser } from "../../actions/user-crud";
 import { login } from "../../actions/auth";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
 
 export class RegistrationForm extends Component {
   componentDidMount() {
@@ -15,10 +16,11 @@ export class RegistrationForm extends Component {
   onSubmit = values => {
     const { email, password } = values;
     const user = { email, password };
+    console.log("user:", user);
 
     return this.props
-      .dispatch(registerUser(user))
-      .then(() => this.props.dispatch(login(email, password)));
+      .registerUser(user)
+      .then(data => console.log("data", data));
   };
 
   renderError({ error, touched }) {
@@ -34,13 +36,14 @@ export class RegistrationForm extends Component {
   formControl = ({ input, label, type, meta }) => (
     <span>
       <Form.Control {...input} autoComplete="off" />
-      {this.renderError(meta)}
+
+      <Alert variant={"danger"}>{this.renderError(meta)}</Alert>
     </span>
   );
 
   render() {
     return (
-      <Form>
+      <Form onSubmit={this.props.handleSubmit(this.onSubmit)}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Field component={this.formControl} name="email" />
@@ -75,9 +78,9 @@ const validate = formValues => {
     errors.email = "You must enter a title";
   }
 
-  if (formValues.email && email(formValues.email)) {
-    errors.email = "Invalid email address";
-  }
+  //   if (formValues.email && email(formValues.email)) {
+  //     errors.email = "Invalid email address";
+  //   }
 
   if (!formValues.password) {
     errors.password = "You must enter a password";
@@ -86,7 +89,10 @@ const validate = formValues => {
   return errors;
 };
 
-export default connect()(
+export default connect(
+  null,
+  { registerUser }
+)(
   reduxForm({
     form: "registration",
     validate
