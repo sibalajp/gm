@@ -1,58 +1,43 @@
-import React, { Component } from 'react';
-import './navbar.css';
-import { Link } from 'react-router-dom';
-import Navbarcomp from './navbar-comp';
-
-
-
-
-
+import React, { Component } from "react";
+import "./navbar.css";
+import { Link } from "react-router-dom";
 
 class NavBar extends Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props){
-      super(props)
-    
-      this.state = {
-        howitworksActive: "active",
-        pricingActive: "",
-        bgColor: ""
+    this.state = {
+      howitworksActive: "active",
+      pricingActive: "",
+      bgColor: ""
+    };
+  }
+
+  conponentDidMount() {
+    // navbar stick to top
+    let navbar = document.getElementById("navbar-container");
+
+    let sticky = navbar.offsetTop;
+
+    const stickyNavbar = () => {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky");
+      } else {
+        navbar.classList.remove("sticky");
       }
-    }
-    
-    conponentDidMount() {
-        // navbar stick to top
-        let navbar =  document.getElementById("navbar-container");
-  
-        let sticky = navbar.offsetTop;
+    };
+    window.onscroll = function() {
+      stickyNavbar();
+    };
+  }
 
-        const stickyNavbar = () => {
-          if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky")
-          }
-          else {
-            navbar.classList.remove("sticky");
-          }
-        }
-        window.onscroll =  function() {stickyNavbar()};
+  boxClick = e => {
+    this.setState({ bgColor: "yellow" });
+  };
 
-
-        
-
-        
-    }
-
-    boxClick = (e) => {
-     this.setState({ bgColor: "yellow"})
-   }
-
-  
-  
   render() {
-    
-
-    return(
-      <div id="navbar-container" className="navbar-container">   
+    return (
+      <div id="navbar-container" className="navbar-container">
         <div className="navbar-inner">
           {/* <div id="logo">
             <img src="https://img.icons8.com/windows/64/000000/kangaroo.png" alt="bucketroo logo"></img>
@@ -71,15 +56,10 @@ class NavBar extends Component {
             <button className="md-none signup"><Link to={'/signup'}>Sign Up</Link></button>
             <i style={{ backgroundColor: this.state.bgColor }} onClick={ this.boxClick }class="fas fa-bars"></i>
           </div> */}
-         <Navbarcomp />
-         
         </div>
       </div>
-
-    )
+    );
   }
-
 }
-
 
 export default NavBar;

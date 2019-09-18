@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import Home from "./Home/Home";
-import Pricing from "./Pricing/pricing";
-import signup from "./Onboarding/registration-form";
+import Home from "./home/home";
+import Pricing from "./pricing/pricing";
+import signup from "./onboarding/registration-form";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="">
         <BrowserRouter>
           <div>
             <Route exact path="/" component={Home} />

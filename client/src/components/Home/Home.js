@@ -1,7 +1,7 @@
-import MainPic from "./MainPic";
+import MainPic from "./mainPic";
 import NavBar from "./NavBar";
-import HowItWorks from "./HowItWorks";
-import RegistrationForm from "../Onboarding/registration-form";
+import HowItWorks from "./howItWorks";
+import RegistrationForm from "../onboarding/registration-form";
 
 import React, { Component } from "react";
 
@@ -24,7 +24,6 @@ class Home extends Component {
     return (
       <div className="home-container">
         <NavBar hiwisActive={this.state.hiwisActive} />
-        <RegistrationForm />
         <MainPic />
         <HowItWorks />
       </div>
