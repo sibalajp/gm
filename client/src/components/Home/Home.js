@@ -1,5 +1,5 @@
 import MainPic from "./mainPic";
-import NavBar from "./NavBar";
+import NavBar from "./navbar";
 import HowItWorks from "./howItWorks";
 import RegistrationForm from "../onboarding/registration-form";
 
@@ -23,7 +23,6 @@ class Home extends Component {
   render() {
     return (
       <div className="home-container">
-        <NavBar hiwisActive={this.state.hiwisActive} />
         <MainPic />
         <HowItWorks />
       </div>

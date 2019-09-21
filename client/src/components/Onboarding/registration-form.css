@@ -1,0 +1,20 @@
+.message {
+  color: red;
+}
+
+.main-register-container {
+  width: 800px;
+  height: 400px;
+
+  background-color: white;
+  text-align: center;
+}
+
+.inner-register {
+  display: inline-block;
+  border: 1px solid blue;
+}
+
+.register-form {
+  width: 400px;
+}

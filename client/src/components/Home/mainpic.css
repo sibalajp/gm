@@ -1,63 +1,52 @@
-.carousel-container  {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .mainpic-content h1 {
-    font-size: 50px;
-    color: white;
-    font-family: 'Source Sans Pro', sans-serif;
+  font-size: 50px;
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .mainpic-content h2 {
-    font-size: 30px;
-    color: white;
-    font-family: 'Source Sans Pro', sans-serif;
+  font-size: 30px;
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
-
-.form-group {
-    margin-top: 20px;
-    height: 78px;
-    width: 400px;
-    text-align: center;
-    
+.home-form-group {
+  margin-top: 20px;
+  height: 78px;
+  width: 400px;
+  text-align: center;
+  border: 1px solid red;
 }
 
 .zip-code {
-    height: 78px;
-    text-align: center;
-    margin-right: 15px;
-    vertical-align: top;
-    width: 150px;
-    border-radius: 10px;
-    font-family: 'Source Sans Pro', sans-serif;
-
-
-    
+  height: 78px;
+  text-align: center;
+  margin-right: 15px;
+  vertical-align: top;
+  width: 150px;
+  border-radius: 10px;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .zip-button {
-    height: 78px;
-    background-color: #FF794C;
-    cursor: pointer;
-    color: white;
-    font-size: 26px;
-    border-radius: 10px;
-    border-color: #FF794C;
-    padding: 10px;
-    font-family: 'Source Sans Pro', sans-serif;
-
+  height: 78px;
+  background-color: #ff794c;
+  cursor: pointer;
+  color: white;
+  font-size: 26px;
+  border-radius: 10px;
+  border-color: #ff794c;
+  padding: 10px;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .zip-button:hover {
-    color: grey;
-
+  color: grey;
 }
-
-
-
-
-

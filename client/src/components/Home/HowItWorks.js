@@ -1,4 +1,4 @@
-import React, { Component } from "./node_modules/react";
+import React, { Component } from "react";
 import "./howitworks.css";
 import step1 from "../../img/step-1.png";
 import step2 from "../../img/step-2.png";
