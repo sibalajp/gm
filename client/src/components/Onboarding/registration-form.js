@@ -4,9 +4,8 @@ import { Field, reduxForm } from "redux-form";
 import "./registration-form.css";
 import { registerUser } from "../../actions/user-crud";
 import { login } from "../../actions/auth";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Alert from "react-bootstrap/Alert";
+
+import { Form, Button, Alert } from "react-bootstrap";
 
 export class RegistrationForm extends Component {
   componentDidMount() {
@@ -20,14 +19,14 @@ export class RegistrationForm extends Component {
 
     return this.props
       .registerUser(user)
-      .then(data => console.log("data", data));
+      .then(() => this.props.login(email, password));
   };
 
   renderError({ error, touched }) {
     if (touched && error) {
       return (
         <div className="ui error message">
-          <div className="header">{error}</div>
+          <div className="">{error}</div>
         </div>
       );
     }
@@ -35,33 +34,43 @@ export class RegistrationForm extends Component {
 
   formControl = ({ input, label, type, meta }) => (
     <span>
-      <Form.Control {...input} autoComplete="off" />
-
-      <Alert variant={"danger"}>{this.renderError(meta)}</Alert>
+      <Form.Control
+        style={meta.error && meta.touched ? { border: "1px solid red" } : {}}
+        {...input}
+        autoComplete="off"
+      />
+      {this.renderError(meta)}
     </span>
   );
 
   render() {
     return (
-      <Form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Field component={this.formControl} name="email" />
-        </Form.Group>
+      <div className="main-register-container">
+        <div className="inner-register">
+          <div className="register-start">Let's get started!</div>
+          <Form
+            className="register-form"
+            onSubmit={this.props.handleSubmit(this.onSubmit)}
+          >
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Field component={this.formControl} name="email" />
+            </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Field
-            component={this.formControl}
-            name="password"
-            placeholder="Enter Password"
-          />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Field
+                component={this.formControl}
+                name="password"
+                placeholder="Enter Password"
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit" block>
+              Submit
+            </Button>
+          </Form>
+        </div>
+      </div>
     );
   }
 }
@@ -91,7 +100,7 @@ const validate = formValues => {
 
 export default connect(
   null,
-  { registerUser }
+  { registerUser, login }
 )(
   reduxForm({
     form: "registration",

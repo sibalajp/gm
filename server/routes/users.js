@@ -78,7 +78,7 @@ router.post("/", (req, res, next) => {
     };
     return next(err);
   }
-  console.log("part 1");
+
   // If the username and password aren't trimmed we give an error.  Users might expect that these will work without trimming. We need to reject such values explicitly so the users know what's happening, rather than silently trimming them and expecting the user to understand.
   // We'll silently trim the other fields, because they aren't credentials used to log in, so it's less of a problem. QUESTION: where do we actually do
   const explicityTrimmedFields = ["email", "password"];
@@ -130,17 +130,17 @@ router.post("/", (req, res, next) => {
   //capitalize first letter of firt and first letter of last
   // firstName = capitalizeFirstLetter(firstName);
   // lastName = capitalizeFirstLetter(lastName);
-  console.log("part 2");
+
   return User.hashPassword(password)
     .then(digest => {
       const newUser = {
         email,
         password: digest
       };
-      console.log("userCraete");
       return User.create(newUser);
     })
     .then(user => {
+      console.log("pass");
       // The endpoint creates a new user in the database and responds with a 201 status, a location header and a JSON representation of the user without the password.
       console.log(
         "res.status(201).location(`http://${req.headers.host}/users/${user.id}`).json(user)"
@@ -159,7 +159,6 @@ router.post("/", (req, res, next) => {
           status: 422
         };
       }
-      console.log("next err", err);
       next(err);
     });
 });

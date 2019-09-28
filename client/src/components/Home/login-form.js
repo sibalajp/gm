@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Field, reduxForm } from "redux-form";
+import React, { Component } from "./node_modules/react";
+import { Field, reduxForm } from "./node_modules/redux-form";
 
-import Form from "react-bootstrap/Form";
+import Form from "./node_modules/react-bootstrap/Form";
 
 export class LoginForm extends Component {
   render() {

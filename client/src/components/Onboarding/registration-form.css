@@ -1,0 +1,31 @@
+.inner-register {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.main-register-container {
+  background-color: white;
+  height: 500px;
+  margin: 0 auto;
+  padding: 6rem;
+  width: 800px;
+}
+
+.message {
+  color: red;
+}
+
+.register-form {
+  padding-top: 30px;
+  width: 400px;
+}
+
+.register-start {
+  border-bottom: 1px solid grey;
+  font-family: "Neucha", cursive;
+  font-size: 2rem;
+  font-weight: 600;
+  height: 70px;
+  padding: 15px;
+  text-align: center;
+}
