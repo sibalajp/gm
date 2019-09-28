@@ -1,22 +1,21 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const passport = require('passport');
+const express = require("express");
+const bodyParser = require("body-parser");
+const path = require("path");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const passport = require("passport");
 
-const localStrategy = require('./passport/local');
-const jwtStrategy = require('./passport/jwt');
+const localStrategy = require("./passport/local");
+const jwtStrategy = require("./passport/jwt");
 
-const authRouter = require('./routes/auth');
-const usersRouter = require('./routes/users');
+const authRouter = require("./routes/auth");
+const usersRouter = require("./routes/users");
 
-mongoose.connect('mongodb://localhost/gm_dev')
+mongoose.connect("mongodb://localhost/gm_dev");
 
-const {CLIENT_ORIGIN} = require('./config');
+const { CLIENT_ORIGIN } = require("./config");
 
 const app = express();
-
 
 app.use(
   cors({
@@ -34,17 +33,18 @@ passport.use(localStrategy);
 passport.use(jwtStrategy);
 
 //we include this here so we don't have to for every single router endpoint
-const options = {session: false, failWithError: true};
-const jwtAuth = passport.authenticate('jwt', options);
-const localAuth = passport.authenticate('local', options);
+const options = { session: false, failWithError: true };
+const jwtAuth = passport.authenticate("jwt", options);
+const localAuth = passport.authenticate("local", options);
 
-app.use('/users', usersRouter);
-app.use('/login', localAuth, authRouter); //for login
-
+app.use("/users", usersRouter);
+app.use("/login", localAuth, authRouter);
+app.use("/", jwtAuth, authRouter); //for refresh
+//Any endpoint that passes the jwtAuth strategy and is validted: The `req.user` has a value now because of `done(null, payload.user)` in JWT Strategy
 
 // Custom 404 Not Found route handler
 app.use((req, res, next) => {
-  const err = new Error('Not Found');
+  const err = new Error("Not Found");
   err.status = 404;
   next(err);
 });
@@ -56,15 +56,14 @@ app.use((err, req, res, next) => {
     res.status(err.status).json(errBody);
   } else {
     // console.error(err);
-    res.status(500).json({ message: 'Internal Server Error' });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
-app.get('*', (req,res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-})
-
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 
 app.listen(9000, function() {
-  console.log("the server is running on port 9000")
-})
+  console.log("the server is running on port 9000");
+});

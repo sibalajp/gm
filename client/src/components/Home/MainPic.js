@@ -57,7 +57,7 @@ class MainPic extends Component {
         <div className="mainpic-content">
           <h2>We wash with passion, without the fancy gear</h2>{" "}
         </div>
-        <div className="mainpic-content form-group">
+        <div className="mainpic-content home-form-group">
           <form onSubmit={this.checkZip}>
             <input
               className="zip-code"

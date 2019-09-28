@@ -2,6 +2,13 @@ import { SubmissionError } from "redux-form";
 import { API_BASE_URL } from "../config";
 import { normalizeResponseErrors } from "./utils";
 
+export const UPDATED_USER_SUCCESS = "UPDATED_USER_SUCCESS";
+export const updatedUserSuccess = (updatedUser, message) => ({
+  type: UPDATED_USER_SUCCESS,
+  updatedUser,
+  message
+});
+
 export const registerUser = user => dispatch => {
   console.log("test", user);
   let done = fetch(`${API_BASE_URL}/users`, {
@@ -30,6 +37,6 @@ export const registerUser = user => dispatch => {
         );
       }
     });
-  console.log("register user", done);
+
   return done;
 };

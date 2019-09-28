@@ -19,7 +19,7 @@ export class RegistrationForm extends Component {
 
     return this.props
       .registerUser(user)
-      .then(data => console.log("data", data));
+      .then(() => this.props.login(email, password));
   };
 
   renderError({ error, touched }) {
@@ -47,8 +47,7 @@ export class RegistrationForm extends Component {
     return (
       <div className="main-register-container">
         <div className="inner-register">
-          <div>Text Text Text Lorem Ipsum</div>
-          <div>border here</div>{" "}
+          <div className="register-start">Let's get started!</div>
           <Form
             className="register-form"
             onSubmit={this.props.handleSubmit(this.onSubmit)}
@@ -101,7 +100,7 @@ const validate = formValues => {
 
 export default connect(
   null,
-  { registerUser }
+  { registerUser, login }
 )(
   reduxForm({
     form: "registration",
